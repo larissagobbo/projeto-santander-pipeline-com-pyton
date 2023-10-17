@@ -1,0 +1,72 @@
+import pandas as pd
+
+df = pd.read_csv('SDW2023.csv.txt')
+user_ids = df['UserID'].tolist()
+print(user_ids)
+[4765, 4879, 4880]
+
+import requests
+import json
+
+def get_user(id):
+  response = requests.get(f'{sdw2023_api_url}/users/{id}')
+  return response.json() if response.status_code == 200 else None
+
+users = [user for id in user_ids if (user := get_user(id)) is not None]
+print(json.dumps(users, indent=2))
+[
+  {
+    "id": 4765,
+    "name": "Jorge Lewis",
+    "account": {
+      "id": 5046,
+      "number": "57982-1",
+      "agency": "02145-1",
+      "balance": 623.0,
+      "limit": 1200.0
+    },
+    "card": {
+      "id": 4628,
+      "number": "**** **** **** 5236",
+      "limit": 1500.0
+    },
+    "features": [],
+    "news": []
+  },
+  {
+    "id": 4879,
+    "name": "Beatriz Santana",
+    "account": {
+      "id": 5166,
+      "number": "87954-8",
+      "agency": "02367-8",
+      "balance": 5200.0,
+      "limit": 2500.0
+    },
+    "card": {
+      "id": 4745,
+      "number": "**** **** **** 8752",
+      "limit": 1500.0
+    },
+    "features": [],
+    "news": []
+  },
+  {
+    "id": 4880,
+    "name": "Jessica Castro",
+    "account": {
+      "id": 5167,
+      "number": "75412-3",
+      "agency": "06321-0",
+      "balance": 3000.0,
+      "limit": 4000.0
+    },
+    "card": {
+      "id": 4746,
+      "number": "**** **** **** 7590",
+      "limit": 2000.0
+    },
+    "features": [],
+    "news": []
+  }
+]
