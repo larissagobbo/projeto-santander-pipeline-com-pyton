@@ -21,10 +21,6 @@ Successfully installed openai-0.28.1
 # Substitua o texto TODO por sua API Key da OpenAI, ela será salva como uma variável de ambiente.
 openai_api_key = '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'
 
-import openai
-
-
-
 def generate_ai_news(user):
     openai.api_key = "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"
 
@@ -46,7 +42,3 @@ for user in users:
         "icon": "https://digitalinnovationone.github.io/santander-dev-week-2023-api/icons/credit.svg",
         "description": news
     })
-        "icon": "https://digitalinnovationone.github.io/santander-dev-week-2023-api/icons/credit.svg",
-        "description": news
-    })
-
