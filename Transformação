@@ -19,10 +19,10 @@ Installing collected packages: openai
 Successfully installed openai-0.28.1
 
 # Substitua o texto TODO por sua API Key da OpenAI, ela será salva como uma variável de ambiente.
-openai_api_key = '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'
+openai_api_key = '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' #essa chave foi excluida da openAI antes de ser exposta por questão de segurança
 
 def generate_ai_news(user):
-    openai.api_key = "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"
+    openai.api_key = "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" #essa chave foi excluida da openAI antes de ser exposta por questão de segurança
 
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
